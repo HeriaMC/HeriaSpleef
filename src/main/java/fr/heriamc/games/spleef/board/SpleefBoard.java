@@ -17,7 +17,12 @@ public class SpleefBoard extends GameBoard<SpleefGame, SpleefPlayer> {
 
     @Override
     public void setLines(String s) {
-
+        switch (game.getState()) {
+            case WAIT -> {}
+            case STARTING -> {}
+            case IN_GAME -> {}
+            case END -> {}
+        }
     }
 
 }

@@ -6,27 +6,32 @@ import fr.heriamc.games.engine.utils.GameSizeTemplate;
 import fr.heriamc.games.spleef.player.SpleefPlayer;
 import fr.heriamc.games.spleef.setting.SpleefSettings;
 import fr.heriamc.games.spleef.player.SpleefTeam;
+import fr.heriamc.games.spleef.waiting.SpleefWaitingRoom;
 
 import java.util.UUID;
 
 public class SpleefGame extends Game<SpleefPlayer, SpleefTeam, SpleefSettings> {
 
+    private final SpleefWaitingRoom waitingRoom;
+
     public SpleefGame() {
         super("Spleef", new SpleefSettings(GameSizeTemplate.SIZE_5V5.toGameSize()));
+        this.waitingRoom = new SpleefWaitingRoom(this);
     }
 
     @Override
-    public SpleefTeam defaultGameTeam(int i, GameTeamColor gameTeamColor) {
-        return null;
+    public SpleefTeam defaultGameTeam(int size, GameTeamColor gameTeamColor) {
+        return new SpleefTeam(size, gameTeamColor);
     }
 
     @Override
-    public SpleefPlayer defaultGamePlayer(UUID uuid, boolean b) {
-        return null;
+    public SpleefPlayer defaultGamePlayer(UUID uuid, boolean spectator) {
+        return new SpleefPlayer(uuid, 0, 0, 0, spectator);
     }
 
     @Override
     public void load() {
 
     }
+
 }
