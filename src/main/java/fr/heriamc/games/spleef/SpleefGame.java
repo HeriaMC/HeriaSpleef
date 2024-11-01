@@ -1,8 +1,8 @@
 package fr.heriamc.games.spleef;
 
+import fr.heriamc.api.game.size.GameSizeTemplate;
 import fr.heriamc.games.engine.Game;
 import fr.heriamc.games.engine.team.GameTeamColor;
-import fr.heriamc.games.engine.utils.GameSizeTemplate;
 import fr.heriamc.games.spleef.player.SpleefPlayer;
 import fr.heriamc.games.spleef.setting.SpleefSettings;
 import fr.heriamc.games.spleef.player.SpleefTeam;
@@ -26,7 +26,7 @@ public class SpleefGame extends Game<SpleefPlayer, SpleefTeam, SpleefSettings> {
 
     @Override
     public SpleefPlayer defaultGamePlayer(UUID uuid, boolean spectator) {
-        return new SpleefPlayer(uuid, 0, 0, 0, spectator);
+        return new SpleefPlayer(uuid, 0, 0, spectator);
     }
 
     @Override
